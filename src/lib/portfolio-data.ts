@@ -26,7 +26,7 @@ export type Service = {
 
 export const profile = {
   brand: "Digital Solutions Studio",
-  email: "DigitalSolutions@gmail.com",
+  email: "hello.dsstudio@gmail.com",
   phone: "+387 62 172 540",
   location: "Bosna i Hercegovina",
   availability: "Otvoren za nove projekte i dugoročnu saradnju",
