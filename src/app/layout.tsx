@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { Manrope, Outfit } from "next/font/google";
-import { siteDescription, siteName, siteUrl } from "@/lib/site-config";
+import { SeoJsonLd } from "@/components/seo-json-ld";
+import {
+  seoImage,
+  siteDefaultTitle,
+  siteDescription,
+  siteKeywords,
+  siteName,
+  siteUrl,
+} from "@/lib/site-config";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -16,22 +24,12 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: siteName,
+    default: siteDefaultTitle,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
   applicationName: siteName,
-  keywords: [
-    "web development",
-    "mobile apps",
-    "custom software",
-    "booking sistemi",
-    "dashboard",
-    "firebase",
-    "react",
-    "digital solutions studio",
-    "software solutions",
-  ],
+  keywords: siteKeywords,
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
@@ -55,13 +53,22 @@ export const metadata: Metadata = {
     locale: "bs_BA",
     url: siteUrl,
     siteName,
-    title: siteName,
+    title: siteDefaultTitle,
     description: siteDescription,
+    images: [
+      {
+        url: seoImage,
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: siteName,
+    title: siteDefaultTitle,
     description: siteDescription,
+    images: [seoImage],
   },
   icons: {
     icon: [{ url: "/logo.png", type: "image/png" }],
@@ -80,7 +87,10 @@ export default function RootLayout({
       lang="bs"
       className={`${manrope.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SeoJsonLd />
+        {children}
+      </body>
     </html>
   );
 }

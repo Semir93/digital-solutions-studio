@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { HeroLivePreview } from "@/components/hero-live-preview";
 import {
   PageIntro,
@@ -9,6 +10,36 @@ import {
 } from "@/components/site-sections";
 import { Reveal } from "@/components/reveal";
 import { projects, services } from "@/lib/portfolio-data";
+import { seoImage, siteDescription, siteName, siteUrl } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: `${siteName} | Web aplikacije, mobile app i custom software`,
+  },
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: `${siteName} | Web aplikacije, mobile app i custom software`,
+    description: siteDescription,
+    url: siteUrl,
+    images: [
+      {
+        url: seoImage,
+        width: 1200,
+        height: 630,
+        alt: siteName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteName} | Web aplikacije, mobile app i custom software`,
+    description: siteDescription,
+    images: [seoImage],
+  },
+};
 
 const featuredProjects = projects.filter((project) => project.featured);
 const featuredServices = services.slice(0, 4);

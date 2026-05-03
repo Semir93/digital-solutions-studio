@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ProjectGallery } from "@/components/project-gallery";
 import { SiteFooter, SiteHeader, VisualPanel } from "@/components/site-sections";
 import { getProjectBySlug, projects } from "@/lib/portfolio-data";
-import { siteName } from "@/lib/site-config";
+import { absoluteUrl, seoImage, siteName, siteUrl } from "@/lib/site-config";
 
 type ProjectDetailPageProps = {
   params: Promise<{ slug: string }>;
@@ -37,7 +37,22 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.title} | ${siteName}`,
       description: project.summary,
+      url: `${siteUrl}/projekti/${project.slug}`,
       type: "article",
+      images: [
+        {
+          url: project.image ? absoluteUrl(project.image) : seoImage,
+          width: 1200,
+          height: 630,
+          alt: project.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${siteName}`,
+      description: project.summary,
+      images: [project.image ? absoluteUrl(project.image) : seoImage],
     },
   };
 }
@@ -54,10 +69,33 @@ export default async function ProjectDetailPage({
 
   const projectImages = project.images ?? (project.image ? [project.image] : []);
   const coverImage = project.image ?? projectImages[0];
+  const projectUrl = `${siteUrl}/projekti/${project.slug}`;
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "@id": `${projectUrl}#case-study`,
+    name: project.title,
+    description: project.summary,
+    url: projectUrl,
+    image: coverImage ? absoluteUrl(coverImage) : seoImage,
+    about: project.challenge,
+    creator: {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: siteName,
+    },
+    keywords: project.stack.join(", "),
+  };
 
   return (
     <>
       <SiteHeader />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(projectJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <main className="flex flex-1 flex-col items-center">
         <section className="page-shell py-10 md:py-14">
           <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-slate-500">

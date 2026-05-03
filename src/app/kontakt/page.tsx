@@ -4,13 +4,21 @@ import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter, SiteHeader } from "@/components/site-sections";
 import { profile } from "@/lib/portfolio-data";
+import { seoImage, siteName, siteUrl } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Kontakt",
+  title: "Kontakt za web aplikacije i custom software",
   description:
-    "Kontakt stranica za upite, saradnju i dogovor oko web, mobile i custom softver projekata.",
+    "Pošalji upit za izradu web aplikacije, mobilne aplikacije, booking sistema, interne platforme ili custom software rješenja.",
   alternates: {
     canonical: "/kontakt",
+  },
+  openGraph: {
+    title: `Kontakt za web aplikacije i custom software | ${siteName}`,
+    description:
+      "Kontakt forma za firme koje žele web aplikaciju, mobilnu aplikaciju, booking sistem ili custom software rješenje.",
+    url: `${siteUrl}/kontakt`,
+    images: [seoImage],
   },
 };
 

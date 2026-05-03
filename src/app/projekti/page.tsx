@@ -6,13 +6,21 @@ import {
   SiteHeader,
 } from "@/components/site-sections";
 import { projects } from "@/lib/portfolio-data";
+import { seoImage, siteName, siteUrl } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Projekti",
+  title: "Projekti web i mobilnih aplikacija",
   description:
-    "Pregled web i mobilnih aplikacija, internih platformi, booking sistema i custom software projekata.",
+    "Portfolio Digital Solutions Studio: web aplikacije, mobilne aplikacije, booking sistemi, interne platforme i custom software projekti.",
   alternates: {
     canonical: "/projekti",
+  },
+  openGraph: {
+    title: `Projekti web i mobilnih aplikacija | ${siteName}`,
+    description:
+      "Pregled case study projekata za web aplikacije, mobilne aplikacije, booking sisteme i interne poslovne platforme.",
+    url: `${siteUrl}/projekti`,
+    images: [seoImage],
   },
 };
 

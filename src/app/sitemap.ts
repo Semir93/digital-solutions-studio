@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { projects } from "@/lib/portfolio-data";
-import { siteUrl } from "@/lib/site-config";
+import { absoluteUrl, siteUrl } from "@/lib/site-config";
+
+const lastSignificantUpdate = new Date("2026-05-04");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
@@ -10,16 +12,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kontakt",
   ].map((path) => ({
     url: `${siteUrl}${path}`,
-    lastModified: new Date(),
+    lastModified: lastSignificantUpdate,
     changeFrequency: "weekly" as const,
     priority: path === "" ? 1 : 0.8,
+    images: path === "" ? [absoluteUrl("/opengraph-image")] : undefined,
   }));
 
   const projectPages = projects.map((project) => ({
     url: `${siteUrl}/projekti/${project.slug}`,
-    lastModified: new Date(),
+    lastModified: lastSignificantUpdate,
     changeFrequency: "monthly" as const,
     priority: 0.7,
+    images: (project.images ?? (project.image ? [project.image] : [])).map((image) =>
+      absoluteUrl(image),
+    ),
   }));
 
   return [...staticPages, ...projectPages];

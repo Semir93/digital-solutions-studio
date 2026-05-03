@@ -6,13 +6,21 @@ import {
   SiteHeader,
 } from "@/components/site-sections";
 import { services } from "@/lib/portfolio-data";
+import { seoImage, siteName, siteUrl } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Usluge",
+  title: "Usluge izrade web aplikacija i custom softvera",
   description:
-    "Usluge za web aplikacije, mobilne aplikacije, booking sisteme, interne alate, e-commerce i custom software rješenja.",
+    "Izrada web aplikacija, mobilnih aplikacija, booking sistema, internih alata, e-commerce rješenja i custom softvera za firme.",
   alternates: {
     canonical: "/usluge",
+  },
+  openGraph: {
+    title: `Usluge izrade web aplikacija i custom softvera | ${siteName}`,
+    description:
+      "Digitalna rješenja za firme: web aplikacije, mobile app, booking sistemi, interni sistemi, e-commerce i redesign postojećih proizvoda.",
+    url: `${siteUrl}/usluge`,
+    images: [seoImage],
   },
 };
 
