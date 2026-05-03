@@ -1,0 +1,29 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="56" fill="#091221"/>
+  <rect x="38" y="38" width="1124" height="824" rx="42" fill="url(#bg)"/>
+  <rect x="94" y="94" width="1012" height="712" rx="38" fill="#0F1827" stroke="#9CC2FF" stroke-opacity=".24"/>
+  <rect x="126" y="126" width="614" height="648" rx="34" fill="#111C2B"/>
+  <rect x="774" y="160" width="262" height="520" rx="42" fill="#121B2D"/>
+  <rect x="166" y="174" width="534" height="68" rx="22" fill="#18273B"/>
+  <rect x="166" y="280" width="232" height="198" rx="30" fill="#18273B"/>
+  <rect x="434" y="280" width="266" height="198" rx="30" fill="#DDE8FF"/>
+  <rect x="166" y="520" width="534" height="212" rx="30" fill="#18273B"/>
+  <rect x="812" y="214" width="186" height="36" rx="18" fill="#355DA6"/>
+  <rect x="812" y="282" width="186" height="222" rx="30" fill="#DDE8FF"/>
+  <rect x="812" y="544" width="186" height="92" rx="24" fill="#1A2840"/>
+  <rect x="470" y="320" width="196" height="22" rx="11" fill="#7187B5"/>
+  <rect x="470" y="360" width="154" height="16" rx="8" fill="#A7B7DA"/>
+  <rect x="470" y="610" width="188" height="22" rx="11" fill="#4E5F84"/>
+  <rect x="470" y="650" width="144" height="16" rx="8" fill="#7686AA"/>
+  <circle cx="252" cy="378" r="48" fill="#6AA8FF"/>
+  <circle cx="340" cy="378" r="48" fill="#8BE4FF"/>
+  <circle cx="296" cy="612" r="62" fill="#4C7EEB"/>
+  <rect x="852" y="332" width="106" height="106" rx="28" fill="#6AA8FF"/>
+  <text x="126" y="76" fill="#C7DBFF" font-family="Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="4">CUSTOM APPS</text>
+  <defs>
+    <linearGradient id="bg" x1="38" y1="38" x2="1162" y2="862" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#12263F"/>
+      <stop offset="1" stop-color="#162337"/>
+    </linearGradient>
+  </defs>
+</svg>

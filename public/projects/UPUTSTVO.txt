@@ -1,0 +1,15 @@
+OVDJE UBACUJES SLIKE ZA PROJEKTE.
+
+Primjeri imena fajlova:
+- projekat-1.jpg
+- webshop-home.png
+- mobile-app-dashboard.webp
+
+Kad ubacis sliku ovdje, u fajlu src/lib/portfolio-data.ts koristi putanju ovako:
+
+image: "/projects/projekat-1.jpg"
+
+VAZNO:
+- ne pisi "public/" u putanji
+- ime fajla mora biti potpuno isto kao ovdje u folderu
+- mozes koristiti .jpg, .png ili .webp
