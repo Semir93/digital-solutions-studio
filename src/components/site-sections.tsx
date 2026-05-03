@@ -267,7 +267,7 @@ export function VisualPanel({
           src={image}
           alt={title}
           fill
-          className="object-cover"
+          className={compact ? "object-cover" : "object-contain p-5"}
           sizes={
             compact
               ? "(min-width: 1024px) 33vw, 100vw"
@@ -276,22 +276,30 @@ export function VisualPanel({
         />
       ) : null}
 
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.02)_34%,rgba(17,24,39,0.36)_100%)]" />
+      <div
+        className={
+          compact
+            ? "absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.14),rgba(255,255,255,0.02)_34%,rgba(17,24,39,0.36)_100%)]"
+            : "absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.18),rgba(255,255,255,0.04)_42%,rgba(17,24,39,0.08)_100%)]"
+        }
+      />
       <div className="absolute left-6 top-6 rounded-full border border-white/45 bg-white/78 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-700 backdrop-blur">
         {compact ? subtitle : "Studija slučaja"}
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-slate-50">
-        <div>
-          <p className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-200/90">
-            {subtitle}
-          </p>
-          <p className="display-font text-2xl font-semibold">{title}</p>
+      {compact ? (
+        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-slate-50">
+          <div>
+            <p className="mb-2 text-xs uppercase tracking-[0.2em] text-slate-200/90">
+              {subtitle}
+            </p>
+            <p className="display-font text-2xl font-semibold">{title}</p>
+          </div>
+          <div className="rounded-full border border-white/28 bg-white/14 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/90">
+            Spremno
+          </div>
         </div>
-        <div className="rounded-full border border-white/28 bg-white/14 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/90">
-          Spremno
-        </div>
-      </div>
+      ) : null}
     </div>
   );
 }
