@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
+import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter, SiteHeader } from "@/components/site-sections";
 import { profile } from "@/lib/portfolio-data";
@@ -27,10 +28,6 @@ const inquiryTypes = [
     text: "Za dorade, održavanje, nove module i postepeno širenje postojećeg digitalnog proizvoda.",
   },
 ];
-
-const contactFormAction = `mailto:${profile.email}?subject=${encodeURIComponent(
-  "Upit za projekat - Digital Solutions Studio",
-)}`;
 
 export default function ContactPage() {
   return (
@@ -77,70 +74,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <form
-              className="contact-form"
-              action={contactFormAction}
-              method="post"
-              encType="text/plain"
-            >
-              <div className="grid gap-4 md:grid-cols-2">
-                <FormField label="Ime i prezime">
-                  <input
-                    type="text"
-                    name="Ime i prezime"
-                    placeholder="Ime i prezime"
-                    className="field-input"
-                  />
-                </FormField>
-                <FormField label="Email">
-                  <input
-                    type="email"
-                    name="Email"
-                    placeholder="email@firma.com"
-                    className="field-input"
-                  />
-                </FormField>
-              </div>
-
-              <div className="grid gap-4 md:grid-cols-2">
-                <FormField label="Tip usluge">
-                  <select name="Tip usluge" className="field-select">
-                    <option>Web aplikacija</option>
-                    <option>Mobile aplikacija</option>
-                    <option>Booking sistem</option>
-                    <option>Custom software</option>
-                    <option>Redesign</option>
-                  </select>
-                </FormField>
-                <FormField label="Budžet / opseg">
-                  <input
-                    type="text"
-                    name="Budžet ili opseg"
-                    placeholder="Npr. manji projekt, srednji sistem ili fazni razvoj"
-                    className="field-input"
-                  />
-                </FormField>
-              </div>
-
-              <FormField label="Opis projekta">
-                <textarea
-                  name="Opis projekta"
-                  placeholder="Kratko opiši šta želiš napraviti, kome je namijenjeno i koje funkcije su najvažnije."
-                  rows={6}
-                  className="field-textarea"
-                />
-              </FormField>
-
-              <div className="contact-submit-row">
-                <p>
-                  Forma koristi email fallback, tako da se poruka šalje preko tvog
-                  email klijenta. Ako ti je lakše, možeš poslati poruku i direktno na email.
-                </p>
-                <button type="submit" className="button-primary">
-                  Pošalji upit
-                </button>
-              </div>
-            </form>
+            <ContactForm />
           </section>
         </Reveal>
 
@@ -197,21 +131,6 @@ function ContactRow({
     </a>
   ) : (
     <div className="contact-row">{content}</div>
-  );
-}
-
-function FormField({
-  label,
-  children,
-}: {
-  label: string;
-  children: ReactNode;
-}) {
-  return (
-    <label className="grid gap-2">
-      <span className="text-sm font-medium text-slate-700">{label}</span>
-      {children}
-    </label>
   );
 }
 

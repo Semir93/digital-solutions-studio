@@ -1388,6 +1388,32 @@ a.contact-row:hover strong {
   line-height: 1.7;
 }
 
+.contact-submit-row .button-primary:disabled {
+  cursor: wait;
+  opacity: 0.68;
+  transform: none;
+}
+
+.contact-form-status {
+  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.contact-form-status-success {
+  border: 1px solid rgba(20, 184, 166, 0.22);
+  background: rgba(20, 184, 166, 0.1);
+  color: #0f766e;
+}
+
+.contact-form-status-error {
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  background: rgba(254, 226, 226, 0.75);
+  color: #991b1b;
+}
+
 .contact-intent-strip {
   padding-bottom: clamp(2rem, 5vw, 4rem);
 }
