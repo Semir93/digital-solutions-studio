@@ -556,17 +556,20 @@ export default function Home() {
               />
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="faq-grid">
               {faqs.map((item, index) => (
                 <Reveal key={item.question} delay={index * 70}>
-                  <div className="surface-card rounded-[1.7rem] px-5 py-5">
-                    <h3 className="display-font text-2xl font-semibold text-slate-950">
-                      {item.question}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">
+                  <details className="faq-item surface-card">
+                    <summary className="faq-question">
+                      <span className="display-font">{item.question}</span>
+                      <span className="faq-toggle" aria-hidden="true">
+                        +
+                      </span>
+                    </summary>
+                    <p className="faq-answer">
                       {item.answer}
                     </p>
-                  </div>
+                  </details>
                 </Reveal>
               ))}
             </div>
