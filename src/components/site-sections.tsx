@@ -82,9 +82,6 @@ export function SiteFooter() {
             <Link href="/kontakt" className="button-primary">
               Zatraži ponudu
             </Link>
-            <a href={`mailto:${profile.email}`} className="button-secondary">
-              Email direktno
-            </a>
           </div>
         </div>
 
